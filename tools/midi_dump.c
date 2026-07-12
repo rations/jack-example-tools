@@ -178,7 +178,7 @@ main (int argc, char* argv[])
 		exit (EXIT_FAILURE);
 	}
 
-#ifndef WIN32
+#if !defined(WIN32) && defined(MCL_CURRENT)
 	if (mlockall (MCL_CURRENT | MCL_FUTURE)) {
 		fprintf (stderr, "Warning: Can not lock memory.\n");
 	}
