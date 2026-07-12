@@ -60,6 +60,24 @@ run as root), while honoring the **DESTDIR** environment variable:
 DESTDIR="/some/other/location" meson install -C build
 ```
 
+## Install / packaging (Haiku)
+
+This fork builds these tools natively on Haiku (x86_64) as part of the JackDAW audio
+stack. They are JACK clients, so they need the `jack` package (jack-port-haiku) at
+runtime.
+
+- **From source:** `./build-from-source.sh` (`pkgman install`s meson/ninja + the optional
+  `libsndfile`/`libsamplerate`/`readline` deps, then builds and installs into
+  `/boot/system/non-packaged`). Build the `jack` package first.
+- **Prebuilt package:** `packaging/make-hpkg.sh` → `jack_tools-4-1-x86_64.hpkg`, then
+  `pkgman install ./jack_tools-*.hpkg` (`pkgman` pulls `libsndfile`/`libsamplerate`/
+  `readline` from HaikuPorts). Provides `jack_lsp`, `jack_connect`, `jack_transport`,
+  `jack_midi_dump`, and the rest.
+- A HaikuPorts recipe is in `packaging/jack_tools-4.recipe` (validate with
+  `haikuporter -c jack_tools`).
+
+See [jackDAW-haiku/STACK.md](../jackDAW-haiku/STACK.md) for how the pieces fit together.
+
 ## Releases
 
 [Releases of

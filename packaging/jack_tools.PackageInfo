@@ -1,0 +1,41 @@
+name			jack_tools
+version			4-1
+architecture	x86_64
+summary			"Standard JACK command-line tools and example clients"
+description		"The standard JACK utilities for inspecting and driving a running
+JACK server: list and (dis)connect ports, start/stop transport, measure round-trip
+latency, dump MIDI, load/unload internal clients, and more (jack_lsp, jack_connect,
+jack_transport, jack_iodelay, jack_midi_dump, ...). Requires a running jackd."
+packager		"rations <ehqcar@proton.me>"
+vendor			"rations"
+copyrights {
+	"2001-2024 the JACK developers"
+}
+licenses {
+	"GNU GPL v2"
+}
+provides {
+	jack_tools = 4
+	cmd:jack_lsp = 4
+	cmd:jack_connect = 4
+	cmd:jack_disconnect = 4
+	cmd:jack_transport = 4
+	cmd:jack_iodelay = 4
+	cmd:jack_midi_dump = 4
+	cmd:jack_load = 4
+	cmd:jack_unload = 4
+	cmd:jack_property = 4
+	cmd:jack_samplerate = 4
+	cmd:jack_bufsize = 4
+	cmd:jack_evmon = 4
+	cmd:jack_freewheel = 4
+}
+requires {
+	jack
+	lib:libsndfile
+	lib:libsamplerate
+	lib:libreadline
+}
+urls {
+	"https://github.com/rations/jack-example-tools"
+}

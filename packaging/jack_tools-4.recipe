@@ -1,0 +1,53 @@
+# HaikuPorts recipe for the standard JACK example tools (Haiku branch).
+#
+# NOT YET VALIDATED with haikuporter — verify with `haikuporter -c jack_tools` on the
+# target. Pin SOURCE_URI to a tag/commit and confirm the *_devel package names exist
+# in the HaikuPorts x86_64 repo (pkgman search).
+SUMMARY="Standard JACK command-line tools and example clients"
+DESCRIPTION="The standard JACK utilities: list and (dis)connect ports, drive transport, \
+measure latency, dump MIDI, load/unload internal clients (jack_lsp, jack_connect, \
+jack_transport, jack_iodelay, jack_midi_dump, ...)."
+HOMEPAGE="https://github.com/rations/jack-example-tools"
+COPYRIGHT="2001-2024 the JACK developers"
+LICENSE="GNU GPL v2"
+REVISION="1"
+SOURCE_URI="git+https://github.com/rations/jack-example-tools#haiku"
+SOURCE_DIR="jack-example-tools"
+ARCHITECTURES="x86_64"
+
+PROVIDES="
+	jack_tools = 4
+	cmd:jack_lsp = 4
+	cmd:jack_connect = 4
+	cmd:jack_transport = 4
+	cmd:jack_iodelay = 4
+	cmd:jack_midi_dump = 4
+	"
+REQUIRES="
+	haiku
+	jack
+	lib:libsndfile
+	lib:libsamplerate
+	lib:libreadline
+	"
+BUILD_REQUIRES="
+	haiku_devel
+	jack
+	devel:libsndfile
+	devel:libsamplerate
+	devel:libreadline
+	cmd:pkg_config
+	cmd:meson
+	cmd:ninja
+	"
+
+BUILD()
+{
+	meson setup build --prefix=$prefix --buildtype=release
+	ninja -C build $jobArgs
+}
+
+INSTALL()
+{
+	DESTDIR=$installDestDir meson install -C build
+}
