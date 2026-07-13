@@ -27,8 +27,8 @@ endif
 dep_jack_ = dependency('jack')
 dep_jack = declare_dependency(
   dependencies: dep_jack_,
-  include_directories: include_directories(get_option('prefix') + '/include'),
-  link_args: '-L' + get_option('prefix') + '/lib',
+  include_directories: include_directories(dep_jack_.get_variable('includedir')),
+  link_args: '-L' + dep_jack_.get_variable('libdir'),
   variables: {
     'libdir': dep_jack_.get_variable('libdir'),
     'includedir': dep_jack_.get_variable('includedir'),
@@ -38,7 +38,6 @@ dep_jack = declare_dependency(
 
 include_directories_common = include_directories(
   dep_jack_.get_variable('includedir'),
-  get_option('prefix') + '/include',
 )
 
 if host_machine.system() == 'windows' and host_machine.cpu_family() == 'x86_64'

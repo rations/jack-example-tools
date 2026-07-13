@@ -134,6 +134,9 @@ if build_jack_netsource
   if host_machine.system() == 'windows'
     deps_netsource += cc.find_library('ws2_32')
   endif
+  if host_machine.system() == 'haiku'
+    deps_netsource += cc.find_library('network')
+  endif
 
   exe_jack_netsource = executable(
     'jack_netsource',
