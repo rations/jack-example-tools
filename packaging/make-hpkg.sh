@@ -7,7 +7,7 @@ set -e
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(cd "$HERE/.." && pwd)
 VERSION=4
-REVISION=1
+REVISION=2
 STAGE="$HERE/stage"
 
 pkgman install -y meson ninja pkgconfig libsndfile_devel libsamplerate_devel readline_devel || true

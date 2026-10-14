@@ -1,5 +1,5 @@
 name			jack_tools
-version			4-1
+version			4-2
 architecture	x86_64
 summary			"Standard JACK command-line tools and example clients"
 description		"The standard JACK utilities for inspecting and driving a running
