@@ -1,5 +1,8 @@
 # JACK example tools
 
+> **Users:** install the whole stack from the [JackDAW release](https://github.com/rations/jackDAW-haiku/releases)
+> (`sh install.sh`). This repository is the source of the `jack_tools` package.
+
 This repository holds the official JACK example clients and tools, which have
 been tracked in the
 [example-clients](https://github.com/jackaudio/example-clients) and
