@@ -1,7 +1,8 @@
 # JACK example tools
 
-> **Users:** install the whole stack from the [JackDAW release](https://github.com/rations/jackDAW-haiku/releases)
-> (`sh install.sh`). This repository is the source of the `jack_tools` package.
+> This repository is the source of the `jack_tools` package, part of the
+> [JackDAW stack](https://github.com/rations/jackDAW-renku) for RenkuOS. The 0.5
+> release's `install.sh` is for Haiku hrev60256; there is no RenkuOS release yet.
 
 This repository holds the official JACK example clients and tools, which have
 been tracked in the
@@ -63,10 +64,10 @@ run as root), while honoring the **DESTDIR** environment variable:
 DESTDIR="/some/other/location" meson install -C build
 ```
 
-## Install / packaging (Haiku)
+## Install / packaging (RenkuOS)
 
-This fork builds these tools natively on Haiku (x86_64) as part of the JackDAW audio
-stack. They are JACK clients, so they need the `jack` package (jack-port-haiku) at
+This fork builds these tools natively on RenkuOS (x86_64) as part of the JackDAW audio
+stack. They are JACK clients, so they need the `jack` package (jack-port-renku) at
 runtime.
 
 - **From source:** `./build-from-source.sh` (`pkgman install`s meson/ninja + the optional
@@ -79,7 +80,7 @@ runtime.
 - A HaikuPorts recipe is in `packaging/jack_tools-4.recipe` (validate with
   `haikuporter -c jack_tools`).
 
-See [jackDAW-haiku/STACK.md](../jackDAW-haiku/STACK.md) for how the pieces fit together.
+See [jackDAW-renku/STACK.md](https://github.com/rations/jackDAW-renku/blob/master/STACK.md) for how the pieces fit together.
 
 ## Releases
 
