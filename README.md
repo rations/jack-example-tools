@@ -1,8 +1,8 @@
 # JACK example tools
 
-> This repository is the source of the `jack_tools` package, part of the
-> [JackDAW stack](https://github.com/rations/jackDAW-renku) for RenkuOS. The 0.5
-> release's `install.sh` is for Haiku hrev60256; there is no RenkuOS release yet.
+> This repository is the source of the `jack_tools` package for RenkuOS. Built
+> packages are on its [Releases](https://github.com/rations/jack-example-tools/releases) page, and
+> [renku-audio](https://github.com/rations/renku-audio) lists the whole audio stack.
 
 This repository holds the official JACK example clients and tools, which have
 been tracked in the
@@ -66,21 +66,19 @@ DESTDIR="/some/other/location" meson install -C build
 
 ## Install / packaging (RenkuOS)
 
-This fork builds these tools natively on RenkuOS (x86_64) as part of the JackDAW audio
+This fork builds these tools natively on RenkuOS (x86_64) as part of the Kasen audio
 stack. They are JACK clients, so they need the `jack` package (jack-port-renku) at
 runtime.
 
 - **From source:** `./build-from-source.sh` (`pkgman install`s meson/ninja + the optional
   `libsndfile`/`libsamplerate`/`readline` deps, then builds and installs into
   `/boot/system/non-packaged`). Build the `jack` package first.
-- **Prebuilt package:** `packaging/make-hpkg.sh` → `jack_tools-4-1-x86_64.hpkg`, then
+- **Prebuilt package:** `packaging/make-hpkg.sh` → `jack_tools-4-2-x86_64.hpkg`, then
   `pkgman install ./jack_tools-*.hpkg` (`pkgman` pulls `libsndfile`/`libsamplerate`/
-  `readline` from HaikuPorts). Provides `jack_lsp`, `jack_connect`, `jack_transport`,
+  `readline` from the RenkuOS repositories). Provides `jack_lsp`, `jack_connect`, `jack_transport`,
   `jack_midi_dump`, and the rest.
-- A HaikuPorts recipe is in `packaging/jack_tools-4.recipe` (validate with
-  `haikuporter -c jack_tools`).
 
-See [jackDAW-renku/STACK.md](https://github.com/rations/jackDAW-renku/blob/master/STACK.md) for how the pieces fit together.
+See [renku-audio](https://github.com/rations/renku-audio) for how the pieces fit together.
 
 ## Releases
 
