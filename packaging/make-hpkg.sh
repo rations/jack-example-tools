@@ -1,7 +1,7 @@
 #!/bin/sh
 # make-hpkg.sh — build the `jack_tools` .hpkg on a running Haiku (x86_64).
 # Requires jack (libjack + its jack.pc) to be installed first — build/install
-# jack-port-haiku before running this.
+# jack-port-renku before running this.
 set -e
 
 HERE=$(cd "$(dirname "$0")" && pwd)

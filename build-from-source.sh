@@ -1,6 +1,6 @@
 #!/bin/sh
 # build-from-source.sh — build and install the JACK example tools from source on Haiku.
-# Build/install jack-port-haiku FIRST (this needs libjack + jack.pc).
+# Build/install jack-port-renku FIRST (this needs libjack + jack.pc).
 set -e
 
 HERE=$(cd "$(dirname "$0")" && pwd)
